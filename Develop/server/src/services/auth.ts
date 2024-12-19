@@ -11,33 +11,56 @@ interface JwtPayload {
 }
 
 export const authenticateToken = ({ req }: { req: Request }) => {
-  // allows token to be sent via req.body, req.query, or headers
   let token = req.body.token || req.query.token || req.headers.authorization;
 
   if (req.headers.authorization) {
-    token = token.split(' ').pop().trim();
+    token = token.split(' ').pop()?.trim();
   }
 
   if (!token) {
+    console.warn('No token provided.');
     return req;
   }
 
   try {
-    const { data }: any = jwt.verify(token, process.env.JWT_SECRET_KEY || '', { maxAge: '2hr' });
+    const secretKey = process.env.JWT_SECRET_KEY || 'default_secret';
+    if (secretKey === 'default_secret') {
+      console.error('JWT_SECRET_KEY is not set. Using a fallback key.');
+    }
+
+    const { data }: any = jwt.verify(token, secretKey, { maxAge: '2h' });
+    console.log('Token Verified:', data); // Debugging
     req.user = data as JwtPayload;
   } catch (err) {
-    console.log('Invalid token');
+    if (err instanceof Error) {
+      console.error('Token validation failed:', err.message); // Detailed log
+    } else {
+      console.error('Token validation failed:', err); // Fallback log
+    }
   }
 
   return req;
 };
 
+
 export const signToken = (username: string, email: string, _id: unknown) => {
   const payload = { username, email, _id };
-  const secretKey: any = process.env.JWT_SECRET_KEY;
+  const secretKey = process.env.JWT_SECRET_KEY || 'default_secret';
 
-  return jwt.sign({data: payload}, secretKey, { expiresIn: '2h' });
+  if (secretKey === 'default_secret') {
+    console.error('JWT_SECRET_KEY is not set. Using a fallback key.');
+  }
+
+  try {
+    const token = jwt.sign({ data: payload }, secretKey, { expiresIn: '2h' });
+    console.log('Generated Token:', token); // Debugging log
+    return token;
+  } catch (error) {
+    console.error('Error generating token:', (error as Error).message);
+    throw new Error('Failed to generate token');
+  }
 };
+
 
 export class AuthenticationError extends GraphQLError {
   constructor(message: string) {
