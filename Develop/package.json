@@ -8,13 +8,19 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "install": "npm install --prefix server && npm install --prefix client",
     "build": "concurrently \"cd server && npm run build\" \"cd client && npm run build\"",
-    "render-build": "npm run install && npm run build"
+    "render-build": "npm run install && npm run build",
+    "clean": "rimraf server/dist client/dist"
   },
-  "keywords": ["GraphQL", "GoogleBooks", "FullStack"],
+  "keywords": [
+    "GraphQL",
+    "GoogleBooks",
+    "FullStack"
+  ],
   "author": "Henry",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.10.2",
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "rimraf": "^6.0.1"
   }
 }
