@@ -20,18 +20,30 @@ const server = new ApolloServer({
 
 const app = express();
 
+if (process.env.NODE_ENV === 'production') {
+  const clientPath = path.join(__dirname, '../client/dist');
+  app.use(express.static(clientPath));
+
+  app.get('*', (_req: Request, res: Response) => {
+    res.sendFile(path.join(clientPath, 'index.html'));
+  });
+}
+
 // Start Apollo Server
 const startApolloServer = async () => {
   await server.start();
-  await db;
+  db;
 
   // CORS Middleware
   app.use(cors({
-    origin: 'http://localhost:3000',  // Adjust to your frontend origin
+    origin: process.env.NODE_ENV === 'production'
+      ? 'https://booknest-graphql.onrender.com'  // Replace with actual Render frontend URL
+      : 'http://localhost:3000',
     credentials: true,
     allowedHeaders: ['Authorization', 'Content-Type'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   }));
+  
 
   // Express Middlewares
   app.use(express.urlencoded({ extended: false }));
