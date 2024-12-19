@@ -5,7 +5,7 @@ Welcome to **BookNest**, a full-stack web application that allows users to searc
 ---
 
 ## 🚀 Live Demo
-🔗 [Live App on Render](#)
+🔗 [https://booknest-graphql.onrender.com](#)
 
 ---
 
@@ -100,7 +100,7 @@ Welcome to **BookNest**, a full-stack web application that allows users to searc
 ## 🧪 Testing and Deployment
 
 - **Testing:** Use Apollo Client DevTools and Insomnia for API testing.
-- **Deployment:** Deployed on [Render](https://render.com).
+- **Deployment:** Deployed on [Render](https://booknest-graphql.onrender.com).
 
 ---
 
