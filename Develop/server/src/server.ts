@@ -1,11 +1,11 @@
 import express from 'express';
-import path from 'node:path';
 import cors from 'cors';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import { authenticateToken } from './services/auth.js';
 import { typeDefs, resolvers } from './schemas/index.js';
 import db from './config/connection.js';
+import routes from './routes/index.js';
 
 const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
@@ -15,17 +15,6 @@ const server = new ApolloServer({
 
 const app = express();
 
-// Serve React Frontend in Production
-if (process.env.NODE_ENV === 'production') {
-  const clientPath = path.join(__dirname, '../client/dist');
-  app.use(express.static(clientPath));
-
-  app.get('*', (_req, res) => {
-    res.sendFile(path.join(clientPath, 'index.html'));
-  });
-}
-
-// Start Apollo Server
 const startApolloServer = async () => {
   await server.start();
   await db;
@@ -54,6 +43,9 @@ const startApolloServer = async () => {
       context: authenticateToken as any,
     })
   );
+
+  // Use Routes
+  app.use(routes);
 
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
