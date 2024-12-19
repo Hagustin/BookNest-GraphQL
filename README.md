@@ -28,6 +28,22 @@ Welcome to **BookNest**, a full-stack web application that allows users to searc
 
 ---
 
+## 📸 Screenshots
+
+### 1. **Home Page**
+![Home Page Screenshot](./screenshots/homepage.png)
+
+### 2. **Login & Signup Modal**
+![Login Modal Screenshot](./screenshots/login-modal.png)
+
+### 3. **Book Search Results**
+![Search Results Screenshot](./screenshots/search-results.png)
+
+### 4. **Saved Books Page**
+![Saved Books Screenshot](./screenshots/saved-books.png)
+
+---
+
 ## 📂 Folder Structure
 
 ```
@@ -42,14 +58,12 @@ Welcome to **BookNest**, a full-stack web application that allows users to searc
 1. Clone the repository:
    ```bash
    git clone https://github.com/Hagustin/BookNest-GraphQL.git
-   cd booknest-graphql
+   cd BookNest-GraphQL
    ```
 
 2. Install dependencies:
    ```bash
    npm install
-   cd client && npm install
-   cd server && npm install
    ```
 
 3. Create a `.env` file in the `server` directory with the following variables:
@@ -59,10 +73,14 @@ Welcome to **BookNest**, a full-stack web application that allows users to searc
    GOOGLE_BOOKS_API_KEY=your_google_books_api_key
    ```
 
-4. Run the application:
+4. Build the application:
    ```bash
-   cd server && npm run dev
-   cd client && npm start
+   npm run build
+   ```
+
+5. Run the application:
+   ```bash
+   npm run develop
    ```
 
 ---
