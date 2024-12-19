@@ -18,9 +18,11 @@
   ],
   "author": "Henry",
   "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
   "devDependencies": {
     "@types/node": "^22.10.2",
-    "concurrently": "^8.2.2",
     "rimraf": "^6.0.1"
   }
 }
