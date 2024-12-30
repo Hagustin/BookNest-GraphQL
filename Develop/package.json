@@ -8,7 +8,7 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd server && npm run build && cd ../client && npm run build",
-    "render-build": "npm install && npm run build",
+    "render-build": "npm install --include=dev && npm run build",
     "clean": "rimraf server/dist client/dist"
   },
   "keywords": [],
@@ -20,12 +20,13 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.10.2",
     "concurrently": "^8.2.2",
-    "rimraf": "^6.0.1",
-    "vite": "^6.0.6"
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "vite": "^6.0.6",
+    "@vitejs/plugin-react": "^4.3.4"
   }
 }
