@@ -17,7 +17,7 @@ const app = express();
 
 const startApolloServer = async () => {
   await server.start();
-  await db;
+  db;
 
   // CORS Middleware
   app.use(
