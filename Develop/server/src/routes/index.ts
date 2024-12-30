@@ -10,21 +10,9 @@ import apiRoutes from './api/index.js';
 
 router.use('/api', apiRoutes);
 
-if (process.env.NODE_ENV === 'production') {
-  try {
-    const clientPath = path.join(__dirname, '../../client/dist');
-    router.use(express.static(clientPath));
-
-    router.get('*', (_req: Request, res: Response) => {
-      res.sendFile(path.join(clientPath, 'index.html'));
-    });
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error('Error serving React frontend:', error.message);
-    } else {
-      console.error('Error serving React frontend:', error);
-    }
-  }
-}
+// Serve React frontend correctly
+router.use('*', (_req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+});
 
 export default router;
