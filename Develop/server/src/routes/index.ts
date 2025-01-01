@@ -8,6 +8,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const clientPath = path.join(__dirname, '../../../client/dist');
 
+console.log('clientPath:', clientPath);
+
 import apiRoutes from './api/index.js';
 
 router.use('/api', apiRoutes);
