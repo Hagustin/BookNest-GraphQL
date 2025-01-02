@@ -39,8 +39,6 @@ Welcome to **BookNest**, a full-stack web application that allows users to searc
 ### 3. **Book Search Results**
 ![Search Results Screenshot](./Develop/Assets/search_results.png)
 
-### 4. **Saved Books Page**
-![Saved Books Screenshot](./screenshots/saved-books.png)
 
 ---
 
