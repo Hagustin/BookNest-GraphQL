@@ -1,3 +1,4 @@
+/* file not used at the moment, due to refactoring it to GraphQL queries
 import type { User } from '../models/User.js';
 import type { Book } from '../models/Book.js';
 
@@ -58,3 +59,4 @@ export const deleteBook = (bookId: string, token: string) => {
 export const searchGoogleBooks = (query: string) => {
   return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
 };
+*/

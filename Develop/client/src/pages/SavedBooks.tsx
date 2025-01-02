@@ -1,3 +1,5 @@
+/* Redundant at the moment, i am using components Folder (this is good for RESTful API)
+
 import { useState, useEffect } from 'react';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 
@@ -124,3 +126,5 @@ const SavedBooks = () => {
 };
 
 export default SavedBooks;
+
+*/

@@ -1,3 +1,4 @@
+/* Redundant at the moment, i am using components Folder (this is good for RESTful API)
 import { useState, useEffect } from 'react';
 import type { FormEvent } from 'react';
 import {
@@ -155,3 +156,5 @@ const SearchBooks = () => {
 };
 
 export default SearchBooks;
+
+*/

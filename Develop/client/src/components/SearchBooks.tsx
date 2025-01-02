@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { SAVE_BOOK } from '../utils/mutation';
-import { searchGoogleBooks } from '../utils/API';
+import { searchGoogleBooks } from '../utils/googleBooks';
 import Auth from '../utils/auth';
 
 function SearchBooks() {
@@ -14,8 +14,8 @@ function SearchBooks() {
     if (!searchInput) return;
 
     try {
-      const response = await searchGoogleBooks(searchInput);
-      const { items } = await response.json();
+      const data = await searchGoogleBooks(searchInput);
+      const { items } = data; // data is already parsed as JSON
       const books = items.map((book: any) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ['No author listed'],
