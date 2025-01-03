@@ -35,7 +35,7 @@ const startApolloServer = async () => {
     const __filename = fileURLToPath(import.meta.url); // Get the current file's URL
     const __dirname = path.dirname(__filename); // Get the directory name
 
-    app.use(express.static(path.join(__dirname, '../client/dist')));
+    app.use(express.static(path.join(__dirname, '../../client/dist')));
 
     app.get('*', (_req: Request, res: Response) => {
       res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
