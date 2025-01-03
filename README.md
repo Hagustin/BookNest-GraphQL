@@ -31,19 +31,19 @@ Welcome to **BookNest**, a full-stack web application that allows users to searc
 ## 📸 Screenshots
 
 ### 1. **Home Page**
-![Home Page Screenshot](./Develop/Assets/homepage.png)
+![Home Page Screenshot](./Assets/homepage.png)
 
 ### 2. **Login & Signup Modal**
-![Login Modal Screenshot](./Develop/Assets/login_modal.png)
+![Login Modal Screenshot](./Assets/login_modal.png)
 
 ### 3. **Book Search Results**
-![Search Results Screenshot](./Develop/Assets/search_results.png)
+![Search Results Screenshot](./Assets/search_results.png)
 
 ### 4. **Saved Book Button**
-![Saved Books Screenshot](./Develop/Assets/saved_button.png)
+![Saved Books Screenshot](./Assets/saved_button.png)
 
 ### 5. **Saved Page**
-![Saved Page Screenshot](./Develop/Assets/Saved_page.png)
+![Saved Page Screenshot](./Assets/Saved_page.png)
 
 
 ---
