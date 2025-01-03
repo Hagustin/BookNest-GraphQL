@@ -105,7 +105,7 @@ Welcome to **BookNest**, a full-stack web application that allows users to searc
 
 - **Testing:** Use Apollo Client DevTools and Insomnia for API testing.
 - **Deployment:** Deployed on [Render](https://booknest-graphql.onrender.com).
-
+- **Sample account** email:henry1192_2004@live.com.au password: password
 ---
 
 ## 🤝 Contributing
