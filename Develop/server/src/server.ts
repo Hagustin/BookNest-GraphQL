@@ -60,6 +60,7 @@ const startApolloServer = async () => {
     })
   );
 
+  console.log('Google Books API Key:', process.env.GOOGLE_BOOKS_API_KEY);
 
   // Use Routes
   app.use(routes);
