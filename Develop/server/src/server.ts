@@ -45,6 +45,9 @@ const startApolloServer = async () => {
     })
   );
 
+  // Use Routes
+  app.use(routes);
+
   // Static Assets Middleware for MIME Type Fix
   app.use(
     '/assets',
@@ -62,8 +65,7 @@ const startApolloServer = async () => {
 
   console.log('Google Books API Key:', process.env.GOOGLE_BOOKS_API_KEY);
 
-  // Use Routes
-  app.use(routes);
+
 
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);

@@ -6,7 +6,10 @@
  */
 export const searchGoogleBooks = async (query: string) => {
   try {
-    const response = await fetch(`/api/google-books?q=${encodeURIComponent(query)}`);
+    const response = await fetch(`http://localhost:3001/api/google-books?q=${encodeURIComponent(query)}`);
+    console.log('Query parameter:', encodeURIComponent(query));
+    console.log('Response:', response); // Log the full response object
+
     if (!response.ok) {
       throw new Error(`Backend API request failed with status ${response.status}`);
     }
